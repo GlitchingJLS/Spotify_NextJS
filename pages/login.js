@@ -4,10 +4,10 @@ import { getProviders, signIn } from 'next-auth/react'
 function login({ providers }) {
   return (
       <div className='flex flex-col items-center bg-black min-h-screen w-full justify-center'>
-          <img className='w-52 mb-5' src='https://links.papareact.com/9xl' />
+          <img className='w-52 mb-5' src='https://links.papareact.com/9xl' alt="logo" />
 
-          {Object.values(providers).map(provider => (
-            <div>
+          {Object.values(providers).map((provider, i) => (
+            <div key={i}>
               <button 
                 className='bg-[#18D860] text-white mt-5 pt-3 pb-3 pl-10 pr-10 rounded-full'
                 onClick={() => signIn(provider.id, { callbackUrl: "/"})}  
